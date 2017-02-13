@@ -166,6 +166,9 @@ scene.onCreate = function () {
   scene.addMaterial('Default').setType('matt');
 
   A = scene.addMesh('A.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('A')
     .setType('solid')
     .setTranslation(-442.665527, 200.677353, -0.000022)
@@ -179,6 +182,9 @@ scene.onCreate = function () {
   }
 
   B = A.addMesh('B.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('B')
     .setType('solid')
     .setTranslation(-78.604858, -113.293747, 255.59166)
@@ -192,6 +198,9 @@ scene.onCreate = function () {
   }
 
   C = B.addMesh('C.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('C')
     .setType('solid')
     .setTranslation(522.02002, -268.933319, 346.485291)
@@ -201,6 +210,9 @@ scene.onCreate = function () {
     .setMaterial('Default');
 
   Cref = scene.addMesh('Cref.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('Cref')
     .setType('solid')
     .setTranslation(-72.488708, -94.601074, 797.534546)
@@ -209,6 +221,9 @@ scene.onCreate = function () {
     .setSides('both');
 
   D = scene.addMesh('D.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('D')
     .setType('solid')
     .setTranslation(315.992493, -91.575668, -0.000022)
@@ -222,6 +237,9 @@ scene.onCreate = function () {
   }
 
   E = D.addMesh('E.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('E')
     .setType('solid')
     .setTranslation(-0.266052, 61.794632, 384.275177)
@@ -235,6 +253,9 @@ scene.onCreate = function () {
   }
 
   Ctest = scene.addMesh('C.b3m')
+    .setXAxis([1, 0, 0])
+    .setYAxis([0, 1, 0])
+    .setZAxis([0, 0, 1])
     .setName('Ctest')
     .setType('solid')
     .setScale(1)
