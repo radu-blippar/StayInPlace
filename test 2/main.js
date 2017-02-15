@@ -287,10 +287,9 @@ scene.onCreate = function(){
 							.setScale(1.5)
 							.setColor([0.529, 0.024, 0.024])
 							.setMaterial('Default');
-
-	A.onTouchEnd = function () {
-  	Spin(this)
-  }
+			A.onTouchEnd = function () {
+		  	Spin(this)
+		  }
 
 	var B = A.addMesh('B.b3m')
 					 .setName('B')
@@ -300,10 +299,10 @@ scene.onCreate = function(){
 					 .setScale(0.6)
 					 .setColor([0.898, 0.604, 0.843])
 					 .setMaterial('Default');
-	GetMatrix(B);
-	B.onTouchEnd = function () {
-  	Spin(this)
-  }
+			GetMatrix(B);
+			B.onTouchEnd = function () {
+		  	Spin(this)
+		  }
 
 	var C = B.addMesh('C.b3m')
 					 .setName('C')
@@ -313,7 +312,7 @@ scene.onCreate = function(){
 					 .setScale(1.2)
 					 .setMaterial('01___Default')
 					 .setAlpha(0.300);
-	GetMatrix(C);
+			GetMatrix(C);
 /*
 	var CB = A.addMesh('CB.b3m')
 						.setName('CB')
@@ -341,12 +340,11 @@ scene.onCreate = function(){
   	.setTranslationY(-sH/2)
 		.setColor([0.529, 0.024, 0.024])
 		.setAlpha(0.5);
-
-	C_SetParentA.onTouchEnd = function(){
-  	var CxB = multiplyMatrix(C.itsMatrix, B.itsMatrix);
- 		SetMatrix(A, C, CxB);
- 		console.log("C parent changed from B to A")
-	}
+		C_SetParentA.onTouchEnd = function(){
+	  	var CxB = multiplyMatrix(C.itsMatrix, B.itsMatrix);
+	 		SetMatrix(A, C, CxB);
+	 		console.log("C parent changed from B to A")
+		}
 }
 
 scene.onTouchMove = function () {
