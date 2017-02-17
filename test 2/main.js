@@ -23,18 +23,18 @@ function Cos(deg) {
 }
 
 scene.addMaterial('Default')
-		.setType('matt');
+  .setType('matt');
 
 var _01___Default = scene.addMaterial('01___Default')
-												.setType('matt')
-												.setDiffuseColor([0.0705882, 1, 0]);
+  .setType('matt')
+  .setDiffuseColor([0.0705882, 1, 0]);
 
 var _03___Default = scene.addMaterial('03___Default')
-												.setType('matt')
-												.setDiffuseColor([1, 0, 0]);
+  .setType('matt')
+  .setDiffuseColor([1, 1, 1]);
 
 var _02___Default = scene.addMaterial('02___Default')
-												.setType('matt');
+  .setType('matt');
 
 function Spin(model) {
   var rot0 = model.getRotationZ();
@@ -81,104 +81,104 @@ function printMatrix(a) {
   console.log('-------------------------');
 }
 
-function ZYX_to_XYZ(rotations, inputRadians, returnRadians){
-	var aa = rotations[0];
-	var bb = rotations[1];
-	var cc = rotations[2];
+function ZYX_to_XYZ(rotations, inputRadians, returnRadians) {
+  var aa = rotations[0];
+  var bb = rotations[1];
+  var cc = rotations[2];
 
-	if(inputRadians){
-		aa = toDegrees(aa);
-		bb = toDegrees(bb);
-		cc = toDegrees(cc);
-	}
+  if (inputRadians) {
+    aa = toDegrees(aa);
+    bb = toDegrees(bb);
+    cc = toDegrees(cc);
+  }
 
-	var Rx = [
-		[1, 0, 0],
-		[0, Cos(aa), -Sin(aa)],
-		[0, Sin(aa), Cos(aa)]
-	];
+  var Rx = [
+    [1, 0, 0],
+    [0, Cos(aa), -Sin(aa)],
+    [0, Sin(aa), Cos(aa)]
+  ];
 
-	var Ry = [
-		[Cos(bb), 0, Sin(bb)],
-		[0, 1, 0],
-		[-Sin(bb), 0, Cos(bb)]
-	];
+  var Ry = [
+    [Cos(bb), 0, Sin(bb)],
+    [0, 1, 0],
+    [-Sin(bb), 0, Cos(bb)]
+  ];
 
-	var Rz = [
-		[Cos(cc), -Sin(cc), 0],
-		[Sin(cc), Cos(cc), 0],
-		[0, 0, 1]
-	];
+  var Rz = [
+    [Cos(cc), -Sin(cc), 0],
+    [Sin(cc), Cos(cc), 0],
+    [0, 0, 1]
+  ];
 
-	var IJK = [
-		[1, 0, 0],
-		[0, 1, 0],
-		[0, 0, 1]
-	];
+  var IJK = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+  ];
 
-	var IJKz = multiplyMatrix(IJK,Rz);
-	var IJKy = multiplyMatrix(IJKz,Ry);
-	var IJKx = multiplyMatrix(IJKy,Rx);
+  var IJKz = multiplyMatrix(IJK, Rz);
+  var IJKy = multiplyMatrix(IJKz, Ry);
+  var IJKx = multiplyMatrix(IJKy, Rx);
 
-	var out_z = Math.atan2(IJKx[1][0], IJKx[0][0]);
-	var out_y = Math.atan2(-IJKx[2][0], IJKx[0][0]*Math.cos(out_z) + IJKx[1][0]*Math.sin(out_z));
-	var out_x = Math.atan2(IJKx[0][2]*Math.sin(out_z) - IJKx[1][2]*Math.cos(out_z), IJKx[1][1]*Math.cos(out_z) - IJKx[0][1]*Math.sin(out_z));
+  var out_z = Math.atan2(IJKx[1][0], IJKx[0][0]);
+  var out_y = Math.atan2(-IJKx[2][0], IJKx[0][0] * Math.cos(out_z) + IJKx[1][0] * Math.sin(out_z));
+  var out_x = Math.atan2(IJKx[0][2] * Math.sin(out_z) - IJKx[1][2] * Math.cos(out_z), IJKx[1][1] * Math.cos(out_z) - IJKx[0][1] * Math.sin(out_z));
 
-	if(returnRadians){
-		return [out_x, out_y, out_z]
-	} else {
-		return [toDegrees(out_x), toDegrees(out_y), toDegrees(out_z)]
-	}
+  if (returnRadians) {
+    return [out_x, out_y, out_z]
+  } else {
+    return [toDegrees(out_x), toDegrees(out_y), toDegrees(out_z)]
+  }
 }
 
-function XYZ_to_ZYX(rotations, inputRadians, returnRadians){
-	var aa = rotations[0];
-	var bb = rotations[1];
-	var cc = rotations[2];
+function XYZ_to_ZYX(rotations, inputRadians, returnRadians) {
+  var aa = rotations[0];
+  var bb = rotations[1];
+  var cc = rotations[2];
 
-	if(inputRadians){
-		aa = toDegrees(aa);
-		bb = toDegrees(bb);
-		cc = toDegrees(cc);
-	}
+  if (inputRadians) {
+    aa = toDegrees(aa);
+    bb = toDegrees(bb);
+    cc = toDegrees(cc);
+  }
 
-	var Rx = [
-		[1, 0, 0],
-		[0, Cos(aa), -Sin(aa)],
-		[0, Sin(aa), Cos(aa)]
-	];
+  var Rx = [
+    [1, 0, 0],
+    [0, Cos(aa), -Sin(aa)],
+    [0, Sin(aa), Cos(aa)]
+  ];
 
-	var Ry = [
-		[Cos(bb), 0, Sin(bb)],
-		[0, 1, 0],
-		[-Sin(bb), 0, Cos(bb)]
-	];
+  var Ry = [
+    [Cos(bb), 0, Sin(bb)],
+    [0, 1, 0],
+    [-Sin(bb), 0, Cos(bb)]
+  ];
 
-	var Rz = [
-		[Cos(cc), -Sin(cc), 0],
-		[Sin(cc), Cos(cc), 0],
-		[0, 0, 1]
-	];
+  var Rz = [
+    [Cos(cc), -Sin(cc), 0],
+    [Sin(cc), Cos(cc), 0],
+    [0, 0, 1]
+  ];
 
-	var IJK = [
-		[1, 0, 0],
-		[0, 1, 0],
-		[0, 0, 1]
-	];
+  var IJK = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+  ];
 
-	var IJKx = multiplyMatrix(IJK,Rx);
-	var IJKy = multiplyMatrix(IJKx,Ry);
-	var IJKz = multiplyMatrix(IJKy,Rz);
+  var IJKx = multiplyMatrix(IJK, Rx);
+  var IJKy = multiplyMatrix(IJKx, Ry);
+  var IJKz = multiplyMatrix(IJKy, Rz);
 
-	var out_x = Math.atan2(-IJKz[1][2], IJKz[2][2]);
-	var out_y = Math.atan2(IJKz[0][2], IJKz[2][2]*Math.cos(out_x) - IJKz[1][2]*Math.sin(out_x));
-	var out_z = Math.atan2(IJKz[1][0]*Math.cos(out_x) + IJKz[2][0]*Math.sin(out_x), IJKz[1][1]*Math.cos(out_x) + IJKz[2][1]*Math.sin(out_x));
+  var out_x = Math.atan2(-IJKz[1][2], IJKz[2][2]);
+  var out_y = Math.atan2(IJKz[0][2], IJKz[2][2] * Math.cos(out_x) - IJKz[1][2] * Math.sin(out_x));
+  var out_z = Math.atan2(IJKz[1][0] * Math.cos(out_x) + IJKz[2][0] * Math.sin(out_x), IJKz[1][1] * Math.cos(out_x) + IJKz[2][1] * Math.sin(out_x));
 
-	if(returnRadians){
-		return [out_x, out_y, out_z]
-	} else {
-		return [toDegrees(out_x), toDegrees(out_y), toDegrees(out_z)]
-	}
+  if (returnRadians) {
+    return [out_x, out_y, out_z]
+  } else {
+    return [toDegrees(out_x), toDegrees(out_y), toDegrees(out_z)]
+  }
 }
 
 function GetMatrix(model) {
@@ -233,7 +233,7 @@ function GetMatrix(model) {
   }
 
   model.itsMatrix = RxRyRz_x_SxT;
-  console.log("Got matrix for " + model.getName() + ".");
+  //console.log("Got matrix for " + model.getName() + ".");
 }
 
 function SetMatrix(itsParent, model, m) {
@@ -273,80 +273,145 @@ function SetMatrix(itsParent, model, m) {
   model.setTranslation(t)
   model.setRotation(r);
   model.setScale(s);
+
+  GetMatrix(model);
 }
 
-scene.onCreate = function(){
+scene.onCreate = function () {
 
-	blipp.hideUiComponents('navBar');
+  blipp.hideUiComponents('navBar');
 
-	var A = scene.addMesh('A.b3m')
-							.setName('A')
-							.setType('phantom')
-							.setTranslation(-107.51593, 60.505707, 0)
-							.setRotation(-0, 0, 30.623669)
-							.setScale(1.5)
-							.setColor([0.529, 0.024, 0.024])
-							.setMaterial('Default');
-			A.onTouchEnd = function () {
-		  	Spin(this)
-		  }
+  var A = scene.addMesh('A.b3m')
+    .setName('A')
+    .setType('phantom')
+    .setTranslation(-107.51593, 60.505707, 0)
+    .setRotation(-0, 0, 30.623669)
+    .setScale(1.5)
+    .setColor([0.529, 0.024, 0.024])
+    .setMaterial('Default');
+  A.onTouchEnd = function () {
+    Spin(this)
+  }
 
-	var B = A.addMesh('B.b3m')
-					 .setName('B')
-					 .setType('phantom')
-					 .setTranslation(7.800129, -55.813934, 111.116089)
-					 .setRotation(-9.149782, -8.524243, 19.407499)
-					 .setScale(0.6)
-					 .setColor([0.898, 0.604, 0.843])
-					 .setMaterial('Default');
-			GetMatrix(B);
-			B.onTouchEnd = function () {
-		  	Spin(this)
-		  }
+  var B = A.addMesh('B.b3m')
+    .setName('B')
+    .setType('phantom')
+    .setTranslation(7.800129, -55.813934, 111.116089)
+    .setRotation(-9.149782, -8.524243, 19.407499)
+    .setScale(0.6)
+    .setColor([0.898, 0.604, 0.843])
+    .setMaterial('Default');
+  B.onTouchEnd = function () {
+    Spin(this)
+  }
 
-	var C = B.addMesh('C.b3m')
-					 .setName('C')
-					 .setType('phantom')
-					 .setTranslation(-119.695862, -69.40358, 519.784485)
-					 .setRotation(56.154945, -2.368725, 48.837994)
-					 .setScale(1.2)
-					 .setMaterial('01___Default')
-					 .setAlpha(0.300);
-			GetMatrix(C);
-/*
-	var CB = A.addMesh('CB.b3m')
-						.setName('CB')
-						.setType('phantom')
-						.setTranslation(-91.732086, -70.376282, 417.769623)
-						.setRotation(44.531879, 8.72314, 66.879982)
-						.setScale(0.72)
-						.setMaterial('02___Default')
-						.setAlpha(0.300);
-*/
-	var Cabs = scene.addMesh('Cabs.b3m')
-								 .setName('Cabs')
-								 .setType('phantom')
-								 .setTranslation(-172.149307, -100.427887, 626.654419)
-								 .setRotation(36.388062, 28.922029, 91.391266)
-								 .setScale(1.08)
-								 .setMaterial('03___Default')
-								 .setAlpha(0.300);
+  var C = B.addMesh('C.b3m')
+    .setName('C')
+    .setType('phantom')
+    .setTranslation(-119.695862, -69.40358, 519.784485)
+    .setRotation(56.154945, -2.368725, 48.837994)
+    .setScale(1.2)
+    .setMaterial('01___Default')
+    .setAlpha(0.300);
+  /*
+  	var CB = A.addMesh('CB.b3m')
+  						.setName('CB')
+  						.setType('phantom')
+  						.setTranslation(-91.732086, -70.376282, 417.769623)
+  						.setRotation(44.531879, 8.72314, 66.879982)
+  						.setScale(0.72)
+  						.setMaterial('02___Default')
+  						.setAlpha(0.300);
+  */
+  var Cabs = scene.addMesh('Cabs.b3m')
+    .setName('Cabs')
+    .setTexture('corners.png')
+    .setType('phantom')
+    .setTranslation(-172.149307, -100.427887, 626.654419)
+    .setRotation(36.388062, 28.922029, 91.391266)
+    .setScale(1.08)
+    .setMaterial('03___Default')
+    .setSides('both')
+    .setAlpha(0.300);
 
   //scene.getScreen().addSprite().setScale(sW).setTranslationY(-sH * 0.3).setColor("00000080");
 
-  C_SetParentA =  scene.getScreen().addSprite()
-  	.setScale(sW/2)
-  	.setTranslationX(-sW/2)
-  	.setTranslationY(-sH/2)
-		.setColor([0.529, 0.024, 0.024])
-		.setAlpha(0.5);
-		C_SetParentA.onTouchEnd = function(){
-	  	var CxB = multiplyMatrix(C.itsMatrix, B.itsMatrix);
-	 		SetMatrix(A, C, CxB);
-	 		console.log("C parent changed from B to A")
-		}
+  C_SetParentA = scene.getScreen().addSprite()
+    .setScale(sW / 2)
+    .setTranslationX(-sW / 2)
+    .setTranslationY(-sH / 2)
+    .setColor([0.529, 0.024, 0.024])
+    .setAlpha(0.5);
+
+  C_SetParentA.onTouchEnd = function () {
+    RemoveAllParents(C, true);
+  }
+}
+
+function ParentsList(model) {
+  var m = model;
+  var list = [];
+  while (m.getName() != blipp.getScene().getName()) {
+    list.push([m.getParent(), m.getParent().getName()]);
+    m = m.getParent();
+  }
+  return list;
+}
+
+function RemoveParent(model, logEvents) {
+  if (model.getParent().getName() == blipp.getScene().getName()) {
+    if (logEvents) {
+      console.log(model.getName() + " has no parent but the scene (" + blipp.getScene().getName() + ")")
+    }
+  } else {
+    if (model.itsMatrix == undefined || model.getParent().itsMatrix == undefined) {
+      if (model.itsMatrix == undefined) {
+        GetMatrix(model);
+      }
+      if (model.getParent().itsMatrix == undefined) {
+        GetMatrix(model.getParent());
+      }
+      RemoveParent(model);
+    } else {
+      if (logEvents) {
+        console.log("Removed " + model.getName() + " from parent " + model.getParent().getName())
+        console.log("New parent for " + model.getName() + " is " + model.getParent().getParent().getName())
+      }
+      var Pmatrix = multiplyMatrix(model.itsMatrix, model.getParent().itsMatrix);
+      SetMatrix(model.getParent().getParent(), model, Pmatrix);
+    }
+  }
+}
+
+function RemoveParents(model, n, logEvents) {
+  var r = n;
+  if (model.getParent().getName() == blipp.getScene().getName()) {
+    if (logEvents) {
+      console.log(model.getName() + " has no parent but the scene (" + blipp.getScene().getName() + ")")
+    }
+  } else {
+    while (model.getParent().getName() != blipp.getScene().getName() && r > 0) {
+      RemoveParent(model, false)
+      r--
+    }
+    if (logEvents) {
+      console.log(n + " parent" + (n > 1 ? "s" : "") + " were removed from mdoel " + model.getName())
+      console.log("The new parent of " + model.getName() + " is " + model.getParent().getName())
+    }
+  }
+}
+
+function RemoveAllParents(model, logEvents) {
+  if (model.getParent().getName() != blipp.getScene().getName()) {
+    while (model.getParent().getName() != blipp.getScene().getName()) {
+      RemoveParent(model, false)
+    }
+  }
+  if (logEvents) {
+    console.log(model.getName() + " has no more parents but the scene (" + blipp.getScene().getName() + ")")
+  }
 }
 
 scene.onTouchMove = function () {
-	blipp.goToBlipp(blipp.getAddress());
+  blipp.goToBlipp(blipp.getAddress());
 }
