@@ -1,0 +1,13 @@
+{
+    "name": "new",
+    "version": "1.0.0",
+    "description": "Blippar 3ds Max Exporter 2015",
+    "main": "new.js",
+    "blipp": {
+        "title": "new",
+        "shortTitle": "new"
+    },
+    "dependencies": {
+        "blippar": "1.2.90"
+    }
+}
