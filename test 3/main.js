@@ -357,11 +357,11 @@ scene.onCreate = function () {
     if (i == 0) {
       Cube = scene.addMesh('Box.b3m')
         .setScale(2.5)
-        .setTranslationX(300)
+        .setTranslation(rr(-20, 20) + 300, rr(-20, 20), 0)
     } else {
       Cube = Stack[i - 1].addMesh('Box.b3m')
         .setScale(rr(0.7, 0.9))
-        .setTranslation(0, 0, rr(120, 150))
+        .setTranslation(rr(-20, 20), rr(-20, 20), rr(120, 150))
     }
 
     Cube.n = i;
@@ -388,11 +388,11 @@ scene.onCreate = function () {
     if (i == 0) {
       Cube = scene.addMesh('Box.b3m')
         .setScale(2.5)
-        .setTranslationX(-300)
+        .setTranslation(rr(-20, 20) - 300, rr(-20, 20), 0)
     } else {
       Cube = Cubes[i - 1].addMesh('Box.b3m')
         .setScale(rr(0.7, 0.9))
-        .setTranslation(0, 0, rr(120, 150))
+        .setTranslation(rr(-20, 20), rr(-20, 20), rr(120, 150))
     }
 
     Cube.n = i;
@@ -415,7 +415,7 @@ scene.onCreate = function () {
   }
 
   Tester = Cubes[totalCubes - 1].addMesh('Box.b3m')
-    .setTranslation(0, 0, rr(120, 150))
+    .setTranslation(rr(-20, 20), rr(-20, 20), rr(120, 150))
     .setScale(2)
     .setName("Tester")
     .setType('solid')
@@ -433,30 +433,30 @@ scene.onCreate = function () {
     }
   }
 
-  /*
-    ParentUp = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2 + sW / 6, 0).setColor("ffffffAA");
+  ParentUp = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2 + sW / 6, 0).setColor("ffffffAA");
 
-    ParentUp.onTouchEnd = function () {
-      if (Tester.p < totalCubes - 1) {
-        InsertParent(Tester, Cubes[Tester.p + 1], true)
-        Tester.p++
-      }
+  ParentUp.onTouchEnd = function () {
+    if (Tester.p < totalCubes - 1) {
+      InsertParent(Tester, Cubes[Tester.p + 1], true)
+      Tester.p++
     }
+  }
 
-    ParentDown = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2, 0).setColor("000000AA");
+  ParentDown = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2, 0).setColor("000000AA");
 
-    ParentDown.onTouchEnd = function () {
-      if (Tester.p >= 0) {
-        RemoveParent(Tester, true)
-        Tester.p--
-      }
+  ParentDown.onTouchEnd = function () {
+    if (Tester.p >= 0) {
+      RemoveParent(Tester, true)
+      Tester.p--
     }
-  */
+  }
 
-  ReparentButton = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(sW / 2, -sH / 2, 0).setColor("00ff0040");
+  ReparentButton = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2 - sW / 6, -sH / 2, 0).setColor("00ff0040");
 
   ReparentButton.onTouchEnd = function () {
-    Reparent(Tester, Stack[totalStack - 1], true)
+    ParentUp.setHidden(true)
+    ParentDown.setHidden(true)
+    Reparent(Tester, Stack[totalStack - 1], true);
   }
 
   var test = [
