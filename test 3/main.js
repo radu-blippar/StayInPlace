@@ -332,6 +332,8 @@ function SetMatrix(itsParent, model, m) {
 var colors = ["ff0000", "00ff00", "0000ff", "ffff00", "ff00ff", "00ffff"];
 var totalCubes = 6;
 var Cubes = [];
+var totalStack = 4;
+var Stack = [];
 
 function rr(min, max) { //RandomRange
   return (min + Math.random() * (max - min))
@@ -354,11 +356,43 @@ scene.onCreate = function () {
     }
   */
 
-  for (var i = 0; i < totalCubes; i++) {
-    var Cube
+  for (var i = 0; i < totalStack; i++) {
+    var Cube;
     if (i == 0) {
       Cube = scene.addMesh('Box.b3m')
         .setScale(2.5)
+        .setTranslationX(300)
+    } else {
+      Cube = Stack[i - 1].addMesh('Box.b3m')
+        .setScale(rr(0.7, 0.9))
+        .setTranslation(0, 0, rr(120, 150))
+    }
+
+    Cube.n = i;
+
+    Cube
+      .setName("Stack_" + i)
+      .setColor(colors[i])
+      .setAlpha(0.3)
+      .setType('phantom')
+      .setRotationX(rr(-10, 10))
+      .setRotationY(rr(-10, 10))
+      .setRotationZ(rr(-180, 180))
+      .setMaterial('Default');
+
+    Cube.onTouchEnd = function () {
+      Spin(this)
+    }
+
+    Stack.push(Cube)
+  }
+
+  for (var i = 0; i < totalCubes; i++) {
+    var Cube;
+    if (i == 0) {
+      Cube = scene.addMesh('Box.b3m')
+        .setScale(2.5)
+        .setTranslationX(-300)
     } else {
       Cube = Cubes[i - 1].addMesh('Box.b3m')
         .setScale(rr(0.7, 0.9))
@@ -396,35 +430,44 @@ scene.onCreate = function () {
   Tester.onUpdate = function () {
     if (this.getParent() == blipp.getScene()) {
       this.setColor('ffffff');
+      this.setAlpha(1);
     } else {
-      this.setColor(this.getParent().getColor())
+      this.setColor(this.getParent().getColor());
+      this.setAlpha(this.getParent().getAlpha());
     }
   }
 
   scene.getScreen().addSprite().setScale(sW).setTranslationY(-sH * 0.5).setColor("00000080");
+  /*
+    ParentUp = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2 + sW / 6, 0).setColor("ffffffAA");
 
-  ParentUp = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2 + sW / 6, 0).setColor("ffffffAA");
-
-  ParentUp.onTouchEnd = function () {
-    if (Tester.p < totalCubes - 1) {
-      InsertParent(Tester, Cubes[Tester.p + 1], true)
-      Tester.p++
+    ParentUp.onTouchEnd = function () {
+      if (Tester.p < totalCubes - 1) {
+        InsertParent(Tester, Cubes[Tester.p + 1], true)
+        Tester.p++
+      }
     }
-  }
 
-  ParentDown = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2, 0).setColor("000000AA");
+    ParentDown = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2, 0).setColor("000000AA");
 
-  ParentDown.onTouchEnd = function () {
-    if (Tester.p >= 0) {
-      RemoveParent(Tester, true)
-      Tester.p--
+    ParentDown.onTouchEnd = function () {
+      if (Tester.p >= 0) {
+        RemoveParent(Tester, true)
+        Tester.p--
+      }
     }
-  }
+  */
 
   Reset = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(-sW / 2, -sH / 2, 0).setColor("ff000040");
 
   Reset.onTouchEnd = function () {
     blipp.goToBlipp(blipp.getAddress());
+  }
+
+  ReparentButton = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(sW / 2, -sH / 2, 0).setColor("00ff0040");
+
+  ReparentButton.onTouchEnd = function () {
+    Reparent(Tester, Stack[totalStack - 1], true)
   }
 
   var test = [
@@ -470,33 +513,6 @@ function RemoveParent(model, logEvents) {
       }
       var Pmatrix = multiplyMatrix(model.itsMatrix, model.getParent().itsMatrix);
       SetMatrix(model.getParent().getParent(), model, Pmatrix);
-    }
-  }
-}
-
-function InsertParent(model, newParent, logEvents) {
-  if (model.getParent() != newParent.getParent()) {
-    console.log("Cannot insert parent!")
-    console.log(model.getName() + " and " + newParent.getName() + " have different parents")
-  } else {
-    if (model.itsMatrix == undefined || newParent.itsMatrix == undefined) {
-      if (model.itsMatrix == undefined) {
-        GetMatrix(model);
-      }
-      if (newParent.itsMatrix == undefined) {
-        GetMatrix(newParent);
-      }
-      InsertParent(model, newParent, logEvents);
-    } else {
-      if (logEvents) {
-        console.log("New parent for " + model.getName() + " is " + newParent.getName())
-      }
-
-      GetMatrix(model);
-      GetMatrix(newParent);
-
-      var Pmatrix = multiplyMatrix(model.itsMatrix, matrixInvert(newParent.itsMatrix));
-      SetMatrix(newParent, model, Pmatrix);
     }
   }
 }
@@ -549,6 +565,38 @@ function RemoveAllParents(model, logEvents) {
   }
   if (logEvents) {
     console.log(model.getName() + " has no more parents but the scene (" + blipp.getScene().getName() + ")")
+  }
+}
+
+function InsertParent(model, newParent, logEvents) {
+  if (model.getParent() != newParent.getParent()) {
+    console.log("Cannot insert parent!")
+    console.log(model.getName() + " and " + newParent.getName() + " have different parents")
+  } else {
+    if (model.itsMatrix == undefined || newParent.itsMatrix == undefined) {
+      if (model.itsMatrix == undefined) {
+        GetMatrix(model);
+      }
+      if (newParent.itsMatrix == undefined) {
+        GetMatrix(newParent);
+      }
+      InsertParent(model, newParent, logEvents);
+    } else {
+      if (logEvents) {
+        console.log("New parent for " + model.getName() + " is " + newParent.getName())
+      }
+      var Pmatrix = multiplyMatrix(model.itsMatrix, matrixInvert(newParent.itsMatrix));
+      SetMatrix(newParent, model, Pmatrix);
+    }
+  }
+}
+
+function Reparent(model, newParent, logEvents) {
+  var newStack = ParentsList(newParent).reverse();
+  newStack.push([newParent, newParent.getName()])
+  RemoveAllParents(model);
+  for (var i = 1; i < newStack.length; i++) {
+    InsertParent(model, newStack[i][0], false);
   }
 }
 
