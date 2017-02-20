@@ -279,10 +279,12 @@ function GetMatrix(model) {
 
   var RxRyRz_x_SxT = multiplyMatrix(RxRyRz, SxT);
 
+  /*
   var cl = RxRyRz_x_SxT;
   for (i = 0; i < cl.length; i++) {
     // console.log(cl[i]);
   }
+  */
 
   model.itsMatrix = RxRyRz_x_SxT;
   //console.log("Got matrix for " + model.getName() + ".");
@@ -342,19 +344,13 @@ function rr(min, max) { //RandomRange
 scene.onCreate = function () {
 
   blipp.hideUiComponents('navBar');
-  /*
-    var A = scene.addMesh('A.b3m')
-      .setName('A')
-      .setType('phantom')
-      .setTranslation(-107.51593, 60.505707, 0)
-      .setRotation(-0, 0, 30.623669)
-      .setScale(1.5)
-      .setColor([0.529, 0.024, 0.024])
-      .setMaterial('Default');
-    A.onTouchEnd = function () {
-      Spin(this)
-    }
-  */
+
+  scene.getScreen().addSprite().setScale(sW).setTranslationY(-sH * 0.5).setColor("00000080");
+
+  Reset = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(-sW / 2, -sH / 2, 0).setColor("ff000040");
+  Reset.onTouchEnd = function () {
+    blipp.goToBlipp(blipp.getAddress());
+  }
 
   for (var i = 0; i < totalStack; i++) {
     var Cube;
@@ -437,7 +433,6 @@ scene.onCreate = function () {
     }
   }
 
-  scene.getScreen().addSprite().setScale(sW).setTranslationY(-sH * 0.5).setColor("00000080");
   /*
     ParentUp = scene.getScreen().addSprite().setScale(sW / 6).setHAlign('right').setVAlign('bottom').setTranslation(sW / 2, -sH / 2 + sW / 6, 0).setColor("ffffffAA");
 
@@ -457,12 +452,6 @@ scene.onCreate = function () {
       }
     }
   */
-
-  Reset = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(-sW / 2, -sH / 2, 0).setColor("ff000040");
-
-  Reset.onTouchEnd = function () {
-    blipp.goToBlipp(blipp.getAddress());
-  }
 
   ReparentButton = scene.getScreen().addSprite().setScale(sW / 2).setTranslation(sW / 2, -sH / 2, 0).setColor("00ff0040");
 
