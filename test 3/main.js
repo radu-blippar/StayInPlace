@@ -418,7 +418,7 @@ scene.onCreate = function () {
     .setTranslation(rr(-20, 20), rr(-20, 20), rr(120, 150))
     .setScale(2)
     .setName("Tester")
-    .setType('solid')
+    .setType('phantom')
     .setMaterial('Default');
 
   Tester.p = totalCubes - 1;
