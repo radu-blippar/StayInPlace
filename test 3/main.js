@@ -233,6 +233,16 @@ function XYZ_to_ZYX(rotations, inputRadians, returnRadians) {
   }
 }
 
+function GetGM(model) {
+  var m = model.getGlobalMatrix();
+  return [
+    [m[0], m[4], m[8], -m[12]],
+    [m[1], m[5], m[9], -m[13]],
+    [m[2], m[6], m[10], -m[14]],
+    [m[3], m[7], m[11], m[15]]
+  ];
+}
+
 function GetMatrix(model) {
   var t = model.getTranslation();
   var r = ZYX_to_XYZ(model.getRotation(), false, false);
@@ -456,7 +466,7 @@ scene.onCreate = function () {
   ReparentButton.onTouchEnd = function () {
     ParentUp.setHidden(true)
     ParentDown.setHidden(true)
-    Reparent(Tester, Stack[totalStack - 1], true);
+    Reparent(Tester, Stack[totalStack - 1], true)
   }
 
   var test = [
@@ -548,9 +558,7 @@ function RemoveParentsUntil(model, Target, logEvents) {
 
 function RemoveAllParents(model, logEvents) {
   if (model.getParent().getName() != blipp.getScene().getName()) {
-    while (model.getParent().getName() != blipp.getScene().getName()) {
-      RemoveParent(model, false)
-    }
+    SetMatrix(blipp.getScene(), model, GetGM(model));
   }
   if (logEvents) {
     console.log(model.getName() + " has no more parents but the scene (" + blipp.getScene().getName() + ")")
@@ -581,12 +589,8 @@ function InsertParent(model, newParent, logEvents) {
 }
 
 function Reparent(model, newParent, logEvents) {
-  var newStack = ParentsList(newParent).reverse();
-  newStack.push([newParent, newParent.getName()])
   RemoveAllParents(model);
-  for (var i = 1; i < newStack.length; i++) {
-    InsertParent(model, newStack[i][0], false);
-  }
+  SetMatrix(newParent, model, multiplyMatrix(model.itsMatrix, matrixInvert(GetGM(newParent))))
 }
 
 scene.onTouchMove = function () {
