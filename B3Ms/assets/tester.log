@@ -1,0 +1,87 @@
+2017-02-28.07:53:22 :: LOG - Started
+2017-02-28.07:53:22 :: Max Scene File: 
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\internal.image.white' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.image.white'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\white.png' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\white.png'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.axis' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.axis'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.image.axis' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.image.axis'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.image.light' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.image.light'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.image.uv' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.image.uv'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.image.wireframe' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.image.wireframe'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.light' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.light'
+2017-02-28.07:53:22 ::     copying file: 'C:\Users\Omar Tayeb\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\debug\internal.node' to 'C:\Users\Omar Tayeb\Desktop\Stay in place GIT\StayInPlace\B3Ms\assets\internal.node'
+2017-02-28.07:53:22 :: ERROR: No template found [0]. Skipping Blipp Template
+2017-02-28.07:53:22 ::     Exporter Version: 2.29
+                   ::: Export Options :::
+                    :: Asset Paths ::
+               Asset Path   : assets/
+               Source Path  : javascript/
+                    :: Blipp File Formats ::
+             Blipp Language : javascript
+              Script Format : 1
+               Mesh Version : 1
+             Mesh Precision : VERTEX16N
+             Engine Version : 24
+              Template Type : 0
+              Export Meshes : true
+               Export Scene : true
+            Export Template : true
+            Force Overwrite : false
+                    :: Geometry  ::
+        Preserve Hard Edges : true
+         Preserve Instances : true
+                  Export UV : true
+                    :: Materials ::
+           Export Materials : true
+            Export Textures : true
+       Use Dynamic Lighting : true
+    Copy Textures To Assets : true
+Split MultiMats Into Separate Meshes : true
+                    :: Lighting  ::
+              Export Lights : true
+                    :: Animation ::
+                  Scene FPS : 30
+              Playback Loop : 1
+                Sample Step : 1
+             Animation Type : 0
+                  Autostart : true
+   Export Vertex Animations : true
+     Export Path Animations : true
+      Embed Node Animations : true
+       Use TPath Animations : false
+          Prefix Animations : true
+             Bake Animation : true
+                 Bake Start : 0
+                   Bake End : 100
+                    :: Advanced  ::
+                    Up Axis : Z-Up
+               Scale Factor : 1
+       Debug Node Positions : true
+       Open Export In Editor: false
+                File To Open: 0
+2017-02-28.07:53:22 :: SCENE - Verifying can export
+2017-02-28.07:53:22 :: FILE - creating: "C:/Users/Omar Tayeb/Desktop/Stay in place GIT/StayInPlace/B3Ms/javascript/tester.js"
+2017-02-28.07:53:22 :: SCENE - pre-serialize
+2017-02-28.07:53:22 :: SCENE - serialize
+2017-02-28.07:53:22 ::     exporting scene root
+2017-02-28.07:53:22 :: MODEL - export 'Box001'
+2017-02-28.07:53:22 :: MESH - export instance: Box001_b3m
+2017-02-28.07:53:22 :: FILE - creating: "C:/Users/Omar Tayeb/Desktop/Stay in place GIT/StayInPlace/B3Ms/assets/Box001.b3m"
+2017-02-28.07:53:22 ::     using mesh instance: Box001.b3m
+2017-02-28.07:53:22 ::     material wirecolor
+2017-02-28.07:53:22 :: SCENE - post-serialize
+2017-02-28.07:53:22 ::     serializing render bin: 50
+2017-02-28.07:53:22 ::     serializing render bin: 2000
+2017-02-28.07:53:22 :: WARN: no marker defined in scene
+2017-02-28.07:53:22 :: FILE - closed
+2017-02-28.07:53:22 :: PACKAGE: already exists, it will not be overwritten!
+2017-02-28.07:53:22 :: SUMMARY
+# Meshes Exported              : 1 / 1
+# Materials Exported           : 0 / 0
+# Textures Copied              : 0 / 0
+# Skeletons Exported           : 0 / 0
+# Lights Exported              : 0 / 0
+# Path Animations Exported     : 0 / 0
+# Vertex Animations Exported   : 0 / 0
+# Skeletal Animations Exported : 0 / 0
+# Blipp Basic Nodes Exported   : 0 / 0
+2017-02-28.07:53:24 :: LOG - Closed
