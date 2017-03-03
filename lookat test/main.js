@@ -17,11 +17,8 @@ function rr(min, max) { //RandomRange
 scene.onCreate = function () {
 
   p0 = scene.addTransform();
-  p1 = p0.addTransform();
-  p2 = p1.addTransform();
-  p3 = p2.addTransform();
 
-  Pointer = p3.addMesh('Pointer.b3m').setColor('00ff00').setMaterial('Default');
+  Pointer = p0.addMesh('Pointer.b3m').setColor('00ff00').setMaterial('Default');
 
   Target = scene.addMesh('Target.b3m').setColor('ff0000aa').setMaterial('Default');
 
@@ -36,9 +33,7 @@ scene.onCreate = function () {
 
     Target.setTranslation(t)
     p0.setTranslation(p).setRotationY(90);
-    p1.setRotationX(x)
-    p2.setRotationY(y)
-    p3.setRotationZ(90)
+    Pointer.setRotation(x, y, 90)
   }
 
   Look.onTouchEnd();
