@@ -1,13 +1,13 @@
 {
-    "name": "new",
+    "name": "lookat",
     "version": "1.0.0",
-    "description": "Blippar 3ds Max Exporter 2015",
-    "main": "new.js",
+    "description": "Blippar 3ds Max Exporter 2016",
+    "main": "lookat.js",
     "blipp": {
-        "title": "new",
-        "shortTitle": "new"
+        "title": "lookat",
+        "shortTitle": "lookat"
     },
     "dependencies": {
-        "blippar": "1.2.90"
+        "blippar": "1.3.28"
     }
 }
