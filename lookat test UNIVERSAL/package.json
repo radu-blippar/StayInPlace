@@ -1,0 +1,12 @@
+    {
+        "version": "1.0.0",
+        "description": "Testing",
+        "main": "main.js",
+        "blipp" : {
+          "title": "Testing",
+          "shortTitle": "Testing"
+        },
+        "dependencies": {
+          "blippar": "1.4.6"
+        }
+    }
