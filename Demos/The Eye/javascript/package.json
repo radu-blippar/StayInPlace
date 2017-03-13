@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "description": "The Eye",
+  "main": "main.js",
+  "blipp" : {
+    "title": "The Eye",
+    "shortTitle": "The Eye"
+  },
+  "dependencies": {
+    "blippar": "1.4.6"
+  }
+}

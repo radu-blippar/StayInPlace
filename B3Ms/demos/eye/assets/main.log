@@ -1,0 +1,109 @@
+2017-03-13.10:06:27 :: LOG - Started
+2017-03-13.10:06:27 :: Max Scene File: C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\Demos\Eye.max
+2017-03-13.10:06:27 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\internal.image.white' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\eye\assets\internal.image.white'
+2017-03-13.10:06:27 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\white.png' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\eye\assets\white.png'
+2017-03-13.10:06:27 :: ERROR: No template found [0]. Skipping Blipp Template
+2017-03-13.10:06:27 ::     Exporter Version: 2.29
+                   ::: Export Options :::
+                    :: Asset Paths ::
+               Asset Path   : assets/
+               Source Path  : javascript/
+                    :: Blipp File Formats ::
+             Blipp Language : javascript
+              Script Format : 1
+               Mesh Version : 1
+             Mesh Precision : VERTEX16N
+             Engine Version : 24
+              Template Type : 0
+              Export Meshes : true
+               Export Scene : true
+            Export Template : true
+            Force Overwrite : true
+                    :: Geometry  ::
+        Preserve Hard Edges : true
+         Preserve Instances : true
+                  Export UV : true
+                    :: Materials ::
+           Export Materials : true
+            Export Textures : true
+       Use Dynamic Lighting : true
+    Copy Textures To Assets : true
+Split MultiMats Into Separate Meshes : false
+                    :: Lighting  ::
+              Export Lights : true
+                    :: Animation ::
+                  Scene FPS : 30
+              Playback Loop : 1
+                Sample Step : 1
+             Animation Type : 0
+                  Autostart : true
+   Export Vertex Animations : true
+     Export Path Animations : true
+      Embed Node Animations : false
+       Use TPath Animations : false
+          Prefix Animations : false
+             Bake Animation : true
+                 Bake Start : 0
+                   Bake End : 100
+                    :: Advanced  ::
+                    Up Axis : Z-Up
+               Scale Factor : 1
+       Debug Node Positions : false
+       Open Export In Editor: false
+                File To Open: 0
+2017-03-13.10:06:27 :: SCENE - Verifying can export
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/javascript/main.js"
+2017-03-13.10:06:27 :: SCENE - pre-serialize
+2017-03-13.10:06:27 :: SCENE - serialize
+2017-03-13.10:06:27 ::     exporting scene root
+2017-03-13.10:06:27 :: MATERIAL - exporting 'Globe'
+2017-03-13.10:06:27 :: MODEL - export 'Eye_Globe'
+2017-03-13.10:06:27 :: MESH - export instance: Eye_Globe_b3m
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/assets/Eye_Globe.b3m"
+2017-03-13.10:06:27 ::     using mesh instance: Eye_Globe.b3m
+2017-03-13.10:06:27 ::     material exporting 'Globe'
+2017-03-13.10:06:27 :: MATERIAL - exporting 'Iris'
+2017-03-13.10:06:27 :: MODEL - export 'Eye_Iris'
+2017-03-13.10:06:27 :: MESH - export instance: Eye_Iris_b3m
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/assets/Eye_Iris.b3m"
+2017-03-13.10:06:27 ::     using mesh instance: Eye_Iris.b3m
+2017-03-13.10:06:27 ::     material exporting 'Iris'
+2017-03-13.10:06:27 :: MATERIAL - exporting 'Pupil'
+2017-03-13.10:06:27 :: MODEL - export 'Eye_Pupil'
+2017-03-13.10:06:27 :: MESH - export instance: Eye_Pupil_b3m
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/assets/Eye_Pupil.b3m"
+2017-03-13.10:06:27 ::     using mesh instance: Eye_Pupil.b3m
+2017-03-13.10:06:27 ::     material exporting 'Pupil'
+2017-03-13.10:06:27 :: WARN: Unsupported child of 'Eye_Iris',  'Eye_Pupil[1,0]', skipping
+2017-03-13.10:06:27 :: WARN: Unsupported child of 'Eye_Globe',  'Eye_Iris[1,0]', skipping
+2017-03-13.10:06:27 :: MATERIAL - exporting 'Lids'
+2017-03-13.10:06:27 :: MODEL - export 'Eye_Lid_Bottom'
+2017-03-13.10:06:27 :: MESH - export instance: Eye_Lid_Bottom_b3m
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/assets/Eye_Lid_Bottom.b3m"
+2017-03-13.10:06:27 ::     using mesh instance: Eye_Lid_Bottom.b3m
+2017-03-13.10:06:27 ::     material exporting 'Lids'
+2017-03-13.10:06:27 :: MODEL - export 'Eye_Lid_Top'
+2017-03-13.10:06:27 :: MESH - export instance: Eye_Lid_Top_b3m
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/assets/Eye_Lid_Top.b3m"
+2017-03-13.10:06:27 ::     using mesh instance: Eye_Lid_Top.b3m
+2017-03-13.10:06:27 ::     material exporting 'Lids'
+2017-03-13.10:06:27 :: SCENE - post-serialize
+2017-03-13.10:06:27 ::     serializing render bin: 1
+2017-03-13.10:06:27 ::     serializing render bin: 50
+2017-03-13.10:06:27 ::     serializing render bin: 2000
+2017-03-13.10:06:27 :: WARN: no marker defined in scene
+2017-03-13.10:06:27 :: FILE - closed
+2017-03-13.10:06:27 :: PACKAGE: "Package JSON"
+2017-03-13.10:06:27 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/eye/javascript/package.json"
+2017-03-13.10:06:27 :: FILE - closed
+2017-03-13.10:06:27 :: SUMMARY
+# Meshes Exported              : 5 / 5
+# Materials Exported           : 4 / 4
+# Textures Copied              : 0 / 0
+# Skeletons Exported           : 0 / 0
+# Lights Exported              : 0 / 0
+# Path Animations Exported     : 0 / 0
+# Vertex Animations Exported   : 0 / 0
+# Skeletal Animations Exported : 0 / 0
+# Blipp Basic Nodes Exported   : 0 / 0
+2017-03-13.10:06:30 :: LOG - Closed

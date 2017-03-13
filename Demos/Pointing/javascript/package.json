@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "description": "Pointing",
+  "main": "main.js",
+  "blipp" : {
+    "title": "Pointing",
+    "shortTitle": "Pointing"
+  },
+  "dependencies": {
+    "blippar": "1.4.6"
+  }
+}
