@@ -306,58 +306,109 @@ Lids = scene.addMaterial('Lids')
 
 scene.onCreate = function () {
 
-  Eye = scene.addTransform('scene_main').setScale(10);
+  Eye_Left = scene.addTransform('Eye_Left').setScale(6).setTranslationX(-160);
 
-  Eye_Globe = Eye.addMesh('Sphere.b3m')
+  Eye_Left_Globe = Eye_Left.addMesh('Sphere.b3m')
     .setName('Eye_Globe')
     .setType('solid')
     .setTranslation(-0.588463, -0.82385, 0)
     .setMaterial('Globe');
 
-  Eye_Globe.onDraw = function () {
-    PointCoords(this, blipp.getCameraPosition('marker'))
-  }
-
-  Eye_Iris = Eye_Globe.addMesh('Sphere.b3m')
+  Eye_Left_Iris = Eye_Left_Globe.addMesh('Sphere.b3m')
     .setName('Eye_Iris')
     .setType('solid')
     .setTranslation(0, 0, 7.611631)
     .setScale(0.763341, 0.763341, 0.763341)
     .setMaterial('Iris');
 
-  Eye_Pupil = Eye_Iris.addMesh('Sphere.b3m')
+  Eye_Left_Pupil = Eye_Left_Iris.addMesh('Sphere.b3m')
     .setName('Eye_Pupil')
     .setType('solid')
     .setTranslation(0, 0, 15.0)
     .setScale(0.468982, 0.468982, 0.468982)
     .setMaterial('Pupil');
 
-  Eye_Lid_Bottom = Eye.addMesh('Eye_Lid.b3m')
+  Eye_Left_Lid_Bottom = Eye_Left.addMesh('Eye_Lid.b3m')
     .setName('Eye_Lid_Bottom')
     .setType('solid')
     .setTranslation(-0.588463, -0.82385, 0)
     .setRotation(140, 0, -0)
     .setMaterial('Lids');
 
-  Eye_Lid_Top = Eye.addMesh('Eye_Lid.b3m')
+  Eye_Left_Lid_Top = Eye_Left.addMesh('Eye_Lid.b3m')
     .setName('Eye_Lid_Top')
     .setType('solid')
     .setTranslation(-0.588463, -0.82385, 0)
     .setRotation(-140, 0, -0)
     .setMaterial('Lids');
 
+  Eye_Right = scene.addTransform('Eye_Right').setScale(6).setTranslationX(160);
+
+  Eye_Right_Globe = Eye_Right.addMesh('Sphere.b3m')
+    .setName('Eye_Globe')
+    .setType('solid')
+    .setTranslation(-0.588463, -0.82385, 0)
+    .setMaterial('Globe');
+
+  Eye_Right_Iris = Eye_Right_Globe.addMesh('Sphere.b3m')
+    .setName('Eye_Iris')
+    .setType('solid')
+    .setTranslation(0, 0, 7.611631)
+    .setScale(0.763341, 0.763341, 0.763341)
+    .setMaterial('Iris');
+
+  Eye_Right_Pupil = Eye_Right_Iris.addMesh('Sphere.b3m')
+    .setName('Eye_Pupil')
+    .setType('solid')
+    .setTranslation(0, 0, 15.0)
+    .setScale(0.468982, 0.468982, 0.468982)
+    .setMaterial('Pupil');
+
+  Eye_Right_Lid_Bottom = Eye_Right.addMesh('Eye_Lid.b3m')
+    .setName('Eye_Lid_Bottom')
+    .setType('solid')
+    .setTranslation(-0.588463, -0.82385, 0)
+    .setRotation(140, 0, -0)
+    .setMaterial('Lids');
+
+  Eye_Right_Lid_Top = Eye_Right.addMesh('Eye_Lid.b3m')
+    .setName('Eye_Lid_Top')
+    .setType('solid')
+    .setTranslation(-0.588463, -0.82385, 0)
+    .setRotation(-140, 0, -0)
+    .setMaterial('Lids');
+
+
+  Eye_Left_Globe.onDraw = function () {
+    PointCoords(this, blipp.getCameraPosition('marker'))
+  }
+
+  Eye_Right_Globe.onDraw = function () {
+    PointCoords(this, blipp.getCameraPosition('marker'))
+  }
+
   var Blink = Math.random() * 100 + 50;
-  Eye_Lid_Bottom.onDraw = function () {
+
+  Blinker = scene.getScreen().addSprite().setScale(100).setColor('00000000').setType('aura')
+  Blinker.onDraw = function () {
     Blink--
     if (Blink < 0) {
       Blink = Math.random() * 100 + 50;
-      var rotBottom = this.getRotationX();
-      this.animate().rotationX(rotBottom - 50).duration(100).onEnd = function () {
-        this.animate().rotationX(rotBottom).duration(100);
+      var rotLeftBottom = Eye_Left_Lid_Bottom.getRotationX();
+      Eye_Left_Lid_Bottom.animate().rotationX(rotLeftBottom - 50).duration(100).onEnd = function () {
+        Eye_Left_Lid_Bottom.animate().rotationX(rotLeftBottom).duration(100);
       }
-      var rotTop = Eye_Lid_Top.getRotationX();
-      Eye_Lid_Top.animate().rotationX(rotTop + 50).duration(100).onEnd = function () {
-        Eye_Lid_Top.animate().rotationX(rotTop).duration(100);
+      var rotLeftTop = Eye_Left_Lid_Top.getRotationX();
+      Eye_Left_Lid_Top.animate().rotationX(rotLeftTop + 50).duration(100).onEnd = function () {
+        Eye_Left_Lid_Top.animate().rotationX(rotLeftTop).duration(100);
+      }
+      var rotRightBottom = Eye_Right_Lid_Bottom.getRotationX();
+      Eye_Right_Lid_Bottom.animate().rotationX(rotRightBottom - 50).duration(100).onEnd = function () {
+        Eye_Right_Lid_Bottom.animate().rotationX(rotRightBottom).duration(100);
+      }
+      var rotRightTop = Eye_Right_Lid_Top.getRotationX();
+      Eye_Right_Lid_Top.animate().rotationX(rotRightTop + 50).duration(100).onEnd = function () {
+        Eye_Right_Lid_Top.animate().rotationX(rotRightTop).duration(100);
       }
     }
   }
