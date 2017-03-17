@@ -488,6 +488,13 @@ scene.onCreate = function () {
     printMatrix(test)
     printMatrix(matrixInvert(test))
     */
+
+  Touch = scene.getScreen().addSprite().setColor("ffffff00").setBlend('add').setCornerRadius(1);
+  scene.onTouchStart = function (id, touchX, touchY) {
+    Touch.setTranslation(touchX, touchY, 0).setAlpha(0.6).setScale(sH / 12);
+    Touch.animate().scale(sH / 10).alpha(0).duration(200);
+  }
+
   console.log("=======================");
   console.log("The sphere mimics its parent's color and opacity (opaque white for scene root)");
   console.log("RED screen button resets the blipp");
