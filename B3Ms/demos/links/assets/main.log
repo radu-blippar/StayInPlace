@@ -1,9 +1,9 @@
-2017-03-13.10:58:25 :: LOG - Started
-2017-03-13.10:58:25 :: Max Scene File: C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\Demos\Links.max
-2017-03-13.10:58:25 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\internal.image.white' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\links\assets\internal.image.white'
-2017-03-13.10:58:25 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\white.png' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\links\assets\white.png'
-2017-03-13.10:58:25 :: ERROR: No template found [0]. Skipping Blipp Template
-2017-03-13.10:58:25 ::     Exporter Version: 2.29
+2017-03-17.10:07:40 :: LOG - Started
+2017-03-17.10:07:40 :: Max Scene File: C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\Demos\Links.max
+2017-03-17.10:07:40 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\internal.image.white' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\links\assets\internal.image.white'
+2017-03-17.10:07:40 ::     copying file: 'C:\Users\radua\AppData\Local\Autodesk\3dsMax\2016 - 64bit\ENU\scripts\BlippTools\assets\white.png' to 'C:\Users\radua\Desktop\Stay in place GIT\StayInPlace\B3Ms\demos\links\assets\white.png'
+2017-03-17.10:07:40 :: ERROR: No template found [0]. Skipping Blipp Template
+2017-03-17.10:07:40 ::     Exporter Version: 2.29
                    ::: Export Options :::
                     :: Asset Paths ::
                Asset Path   : assets/
@@ -51,25 +51,25 @@ Split MultiMats Into Separate Meshes : false
        Debug Node Positions : false
        Open Export In Editor: false
                 File To Open: 0
-2017-03-13.10:58:25 :: SCENE - Verifying can export
-2017-03-13.10:58:25 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/javascript/main.js"
-2017-03-13.10:58:25 :: SCENE - pre-serialize
-2017-03-13.10:58:25 :: SCENE - serialize
-2017-03-13.10:58:25 ::     exporting scene root
-2017-03-13.10:58:25 :: MODEL - export 'Link'
-2017-03-13.10:58:25 :: MESH - export instance: Link_b3m
-2017-03-13.10:58:25 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/assets/Link.b3m"
-2017-03-13.10:58:25 ::     using mesh instance: Link.b3m
-2017-03-13.10:58:25 ::     material wirecolor
-2017-03-13.10:58:25 :: SCENE - post-serialize
-2017-03-13.10:58:25 ::     serializing render bin: 50
-2017-03-13.10:58:25 ::     serializing render bin: 2000
-2017-03-13.10:58:25 :: WARN: no marker defined in scene
-2017-03-13.10:58:25 :: FILE - closed
-2017-03-13.10:58:25 :: PACKAGE: "Package JSON"
-2017-03-13.10:58:25 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/javascript/package.json"
-2017-03-13.10:58:25 :: FILE - closed
-2017-03-13.10:58:25 :: SUMMARY
+2017-03-17.10:07:40 :: SCENE - Verifying can export
+2017-03-17.10:07:40 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/javascript/main.js"
+2017-03-17.10:07:40 :: SCENE - pre-serialize
+2017-03-17.10:07:40 :: SCENE - serialize
+2017-03-17.10:07:40 ::     exporting scene root
+2017-03-17.10:07:40 :: MODEL - export 'Sphere'
+2017-03-17.10:07:40 :: MESH - export instance: Sphere_b3m
+2017-03-17.10:07:40 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/assets/Sphere.b3m"
+2017-03-17.10:07:40 ::     using mesh instance: Sphere.b3m
+2017-03-17.10:07:40 ::     material wirecolor
+2017-03-17.10:07:40 :: SCENE - post-serialize
+2017-03-17.10:07:40 ::     serializing render bin: 50
+2017-03-17.10:07:40 ::     serializing render bin: 2000
+2017-03-17.10:07:40 :: WARN: no marker defined in scene
+2017-03-17.10:07:40 :: FILE - closed
+2017-03-17.10:07:40 :: PACKAGE: "Package JSON"
+2017-03-17.10:07:40 :: FILE - creating: "C:/Users/radua/Desktop/Stay in place GIT/StayInPlace/B3Ms/demos/links/javascript/package.json"
+2017-03-17.10:07:40 :: FILE - closed
+2017-03-17.10:07:40 :: SUMMARY
 # Meshes Exported              : 1 / 1
 # Materials Exported           : 0 / 0
 # Textures Copied              : 0 / 0
@@ -79,4 +79,4 @@ Split MultiMats Into Separate Meshes : false
 # Vertex Animations Exported   : 0 / 0
 # Skeletal Animations Exported : 0 / 0
 # Blipp Basic Nodes Exported   : 0 / 0
-2017-03-13.10:58:26 :: LOG - Closed
+2017-03-17.10:07:41 :: LOG - Closed
